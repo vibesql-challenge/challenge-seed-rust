@@ -43,10 +43,29 @@ make test
 
 ## Rules
 
+### The Execution Boundary
+
+> **Existing database systems may be studied, benchmarked, and used for external analysis, but they must never cross the execution boundary of your submitted system.**
+
+**Outside the boundary (allowed):**
+- Study source code and algorithms
+- Benchmark to identify optimization targets
+- Compare query plans and behaviors
+- Use scripts that call SQLite to pre-compute expected test outputs
+
+**Inside the boundary (disqualified):**
+- Execute queries via existing engines
+- Use as fallback for unsupported features
+- Use as correctness oracle during tests
+- Link, embed, or invoke at runtime
+
+**Key test:** Removing SQLite must not change whether your engine builds, runs, or passes tests.
+
+### Other Requirements
+
 1. **Fork this repo** - Your first commit is your start time
-2. **Build from scratch** - No copying from existing databases
-3. **Public history** - Git history is your proof
-4. **100% tests** - All files must pass
+2. **Public history** - Git history is your proof
+3. **100% tests** - All 622 files must pass
 
 ## Resources
 

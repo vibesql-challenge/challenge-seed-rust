@@ -10,10 +10,29 @@ Build a SQL database that passes 100% of the SQLLogicTest suite (~7.4 million te
 
 ## Rules
 
+### The Execution Boundary (Read This First)
+
+> **Existing database systems may be studied, benchmarked, and used for external analysis, but they must never cross the execution boundary of your submitted system.**
+
+**Outside the boundary (allowed):**
+- Study source code and algorithms (e.g., read SQLite's B-tree implementation)
+- Benchmark to identify optimization targets (e.g., run DuckDB to compare JOIN performance)
+- Compare query plans and behaviors (e.g., check PostgreSQL's EXPLAIN output)
+- Use scripts that call SQLite to pre-compute expected test outputs (offline reference data)
+
+**Inside the boundary (disqualified):**
+- Execute queries via existing engines (even "temporarily")
+- Use as fallback for unsupported features
+- Use as correctness oracle during tests
+- Link, embed, or invoke at runtime
+
+**Key test:** Removing SQLite must not change whether your engine builds, runs, or passes tests.
+
+### Other Requirements
+
 1. **Start from this seed** - Your first commit is when you fork this repo
-2. **No copying** - Don't copy code from VibeSQL or other databases
-3. **Public repo** - Your git history is your proof
-4. **100% pass rate** - All 622 SQLLogicTest files must pass
+2. **Public repo** - Your git history is your proof
+3. **100% pass rate** - All 622 SQLLogicTest files must pass
 
 ## Timing
 
