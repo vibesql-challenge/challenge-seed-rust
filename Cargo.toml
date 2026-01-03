@@ -1,0 +1,13 @@
+[package]
+name = "sql-challenge"
+version = "0.1.0"
+edition = "2024"
+description = "SQL database for the Vibe Coding Challenge"
+license = "MIT"
+
+[dependencies]
+# Add your dependencies here
+
+[profile.release]
+opt-level = 3
+lto = true
