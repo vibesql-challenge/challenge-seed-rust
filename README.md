@@ -11,11 +11,22 @@ Build a SQL database from scratch using AI-assisted development. Pass 100% of SQ
 git clone --recurse-submodules https://github.com/YOUR_USERNAME/challenge-seed-rust.git
 cd challenge-seed-rust
 
-# Build
-cargo build --release
+# Build and run tests (stops on first failure)
+make test-fast
 
-# Run tests
-make test
+# See what needs implementing next
+# The output shows the first failing test and line number
+```
+
+## Development Workflow
+
+```bash
+make build         # Build database (release mode)
+make test-fast     # Run tests, stop on first failure (recommended)
+make test          # Run full test suite
+make test-file FILE=select1   # Run specific test file
+make conformance   # Show pass rate summary
+make help          # Show all commands
 ```
 
 ## The Challenge
